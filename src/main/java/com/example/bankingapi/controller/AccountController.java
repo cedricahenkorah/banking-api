@@ -62,4 +62,12 @@ public class AccountController {
         List<AccountDto> accounts = accountService.getAllAccounts();
         return ResponseEntity.ok(accounts);
     }
+
+    // delete an account
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteAccount(@PathVariable Long id) {
+
+        accountService.deleteAccount(id);
+        return ResponseEntity.ok("Account has been deleted successfully");
+    }
 }
